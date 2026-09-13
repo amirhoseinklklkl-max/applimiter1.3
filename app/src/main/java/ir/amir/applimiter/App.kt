@@ -13,5 +13,10 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         Adivery.configure(this, AdsConfig.APP_ID)
+        // فقط در بیلد دیباگ: لاگ‌های خام خود SDK را در Logcat نشان می‌دهد
+        // تا دلیل واقعی رد شدن درخواست از سمت سرور مشخص شود.
+        if (BuildConfig.DEBUG) {
+            Adivery.setLoggingEnabled(true)
+        }
     }
 }
